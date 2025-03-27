@@ -8,7 +8,7 @@ public class ShopManagement {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CustomerBusiness customerBusiness = new CustomerBusiness();
-        OrderBusiness orderBusiness = new OrderBusiness(CustomerBusiness.customers);
+//        OrderBusiness orderBusiness = new OrderBusiness(CustomerBusiness.customers);
 
 
 
@@ -21,17 +21,31 @@ public class ShopManagement {
             scanner.nextLine();
 
             switch (choice) {
-                case 1 -> {
+                case 1 :
+                do {
                     System.out.println("\n******** CUSTOMER MENU ********");
                     System.out.println("1. Danh sách khách hàng");
                     System.out.println("2. Thêm khách hàng");
                     System.out.println("3. Thoát");
                     int numChoice = scanner.nextInt();
                     scanner.nextLine();
-                    if (numChoice == 1) customerBusiness.displayCustomers();
-                    if (numChoice == 2) customerBusiness.addCustomer(scanner);
-                }
-                case 2 -> {
+                    switch (numChoice) {
+                        case 1:
+                            customerBusiness.displayCustomers();
+                            break;
+                        case 2:
+                            customerBusiness.addCustomer(scanner);
+                            break;
+                        case 3:
+
+                            break;
+                    }
+
+                    break;
+                }while (true);
+
+                case 2 :
+                do{
                     System.out.println("\n******** OD MENU ********");
                     System.out.println("1. Danh sách đơn hàng ");
                     System.out.println("2. Thêm mới đơn hàng  ");
@@ -42,13 +56,17 @@ public class ShopManagement {
                     System.out.println("7. Thoát   ");
                     int numChoice = scanner.nextInt();
                     scanner.nextLine();
+                    switch (numChoice) {
+                        case 1 :
 
-                }
-                case 3 -> {
+                    }
+                }while (true);
+                case 3 :
+
                     System.out.println("Thoát chương trình!");
-                    return;
-                }
-                default -> System.out.println("Lựa chọn không hợp lệ!");
+                    break;
+
+                default: System.out.println("Lựa chọn không hợp lệ!");
             }
         }
 
